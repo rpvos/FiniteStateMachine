@@ -12,7 +12,7 @@ public:
     ~GreenLightState();
 
     void PreFunction() override;
-    void ExucuteFunction() override;
+    void ExecuteFunction() override;
     void PostFunction() override;
 };
 
@@ -20,7 +20,7 @@ void GreenLightState::PreFunction()
 {
     Serial.println("Green light on");
 }
-void GreenLightState::ExucuteFunction()
+void GreenLightState::ExecuteFunction()
 {
     Serial.print(".");
 }

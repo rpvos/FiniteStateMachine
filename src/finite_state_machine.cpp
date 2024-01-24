@@ -101,5 +101,5 @@ void FiniteStateMachine::Update(int interval_is_ms)
     HandleTimedTransitions(now);
 
     // Execute function
-    current_state->ExucuteFunction();
+    current_state->ExecuteFunction();
 }

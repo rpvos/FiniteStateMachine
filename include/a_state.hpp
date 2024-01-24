@@ -11,7 +11,7 @@ public:
     AState();
 
     virtual void PreFunction() = 0;
-    virtual void ExucuteFunction() = 0;
+    virtual void ExecuteFunction() = 0;
     virtual void PostFunction() = 0;
     void SetStateStartTimeInMs(unsigned long now);
     unsigned long GetStateStartTimeInMs();

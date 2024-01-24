@@ -12,7 +12,7 @@ public:
     ~RedLightState();
 
     void PreFunction() override;
-    void ExucuteFunction() override;
+    void ExecuteFunction() override;
     void PostFunction() override;
 };
 
@@ -28,7 +28,7 @@ void RedLightState::PreFunction()
 {
     Serial.println("Red light on");
 }
-void RedLightState::ExucuteFunction()
+void RedLightState::ExecuteFunction()
 {
     Serial.print(".");
 }
