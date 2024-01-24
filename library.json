@@ -1,0 +1,38 @@
+{
+    "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
+    "name": "Finite state machine",
+    "version": "1.0.0",
+    "description": "Simple implementation of class based finite state machine.",
+    "keywords": "FSM",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rpvos/FiniteStateMachine.git"
+    },
+    "authors": [
+        {
+            "name": "Rik Vos",
+            "email": "Rik.Vos01@gmail.com",
+            "url": "http://rpvos.nl",
+            "maintainer": true
+        }
+    ],
+    "license": "GPL-3.0-or-later",
+    "frameworks": [
+        "Arduino"
+    ],
+    "platforms": [
+        "atmelavr"
+    ],
+    "headers": [
+        "finite_state_machine.hpp",
+        "a_state.hpp",
+        "a_transition.hpp",
+        "predicate_transition.hpp",
+        "timed_transition.hpp"
+    ],
+    "examples": [],
+    "dependencies": [],
+    "export": {},
+    "scripts": {},
+    "build": {}
+}
