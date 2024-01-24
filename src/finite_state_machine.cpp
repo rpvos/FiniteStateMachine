@@ -71,14 +71,32 @@ FiniteStateMachine::~FiniteStateMachine()
 
 void FiniteStateMachine::SetTimedTransitions(TimedTransition *timed_transitions, size_t timed_transitions_size)
 {
-    this->timed_transitions = timed_transitions;
+    size_t size = sizeof(TimedTransition) * timed_transitions_size;
+    TimedTransition *temp = (TimedTransition *)malloc(size);
+    if (temp == nullptr)
+    {
+        return;
+    }
+    memcpy(temp, timed_transitions, size);
+    free(this->timed_transitions);
+
+    this->timed_transitions = temp;
     this->timed_transitions_size = timed_transitions_size;
 }
 
 void FiniteStateMachine::SetPredicateTransitions(PredicateTransition *predicate_transitions, size_t predicate_transitions_size)
 {
-    this->predicate_transitions = predicate_transitions;
-    this->timed_transitions_size = predicate_transitions_size;
+    size_t size = sizeof(PredicateTransition) * predicate_transitions_size;
+    PredicateTransition *temp = (PredicateTransition *)malloc(size);
+    if (temp == nullptr)
+    {
+        return;
+    }
+    memcpy(temp, predicate_transitions, size);
+    free(this->predicate_transitions);
+
+    this->predicate_transitions = temp;
+    this->predicate_transitions_size = predicate_transitions_size;
 }
 
 void FiniteStateMachine::Update(int interval_is_ms)
