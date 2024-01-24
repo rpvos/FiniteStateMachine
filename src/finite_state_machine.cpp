@@ -56,13 +56,13 @@ void FiniteStateMachine::TransitionState(AState *new_state)
 
 FiniteStateMachine::FiniteStateMachine(AState *current_state)
 {
-    TransitionState(current_state);
     this->predicate_transitions = nullptr;
     this->predicate_transitions_size = 0;
     this->timed_transitions = nullptr;
     this->timed_transitions_size = 0;
     this->current_state = nullptr;
     this->last_updated = 0;
+    TransitionState(current_state);
 }
 
 FiniteStateMachine::~FiniteStateMachine()
@@ -87,12 +87,15 @@ void FiniteStateMachine::Update(int interval_is_ms)
 
     // Check if state is initialised
     if (this->current_state == nullptr)
+    {
         return;
+    }
 
     // Check if interval is met
     if (!IsTimeToUpdate(now, interval_is_ms))
+    {
         return;
-
+    }
     // Save time as time last updated
     this->last_updated = now;
 

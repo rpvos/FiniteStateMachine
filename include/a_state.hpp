@@ -5,7 +5,7 @@ class AState
 {
 private:
 protected:
-    unsigned long state_start_time_in_ms;
+    unsigned long state_start_time_in_ms = 0;
 
 public:
     AState();

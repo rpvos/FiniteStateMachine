@@ -11,11 +11,15 @@ TimedTransition transitions[] = {
     TimedTransition(&red, &green, 6000),
 };
 
-FiniteStateMachine fsm = FiniteStateMachine(&green);
+FiniteStateMachine fsm;
 
 void setup()
 {
-  size_t transitions_size = sizeof(transitions) / sizeof(TimedTransition);
+  Serial.begin(9600);
+
+  fsm = FiniteStateMachine(&red);
+
+  const size_t transitions_size = sizeof(transitions) / sizeof(TimedTransition);
   fsm.SetTimedTransitions(transitions, transitions_size);
 }
 
