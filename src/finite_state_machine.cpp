@@ -1,6 +1,8 @@
 #include "finite_state_machine.hpp"
 #include <Arduino.h>
 
+const unsigned long kMaxUnsignedLong = ~0ul;
+
 bool FiniteStateMachine::IsTimeToUpdate(unsigned long now, unsigned long interval)
 {
     return now >= last_updated + interval;
@@ -32,7 +34,8 @@ void FiniteStateMachine::HandleTimedTransitions(unsigned long now)
             continue;
         }
 
-        if (now >= timed_transitions[i].GetDurationInMs() + this->current_state->GetStateStartTimeInMs())
+        // Calculate the time between state start and now and check if it is bigger then the transition duration
+        if (timed_transitions[i].GetDurationInMs() <= now + (kMaxUnsignedLong - this->current_state->GetStateStartTimeInMs()) + 1)
         {
             TransitionState(timed_transitions[i].new_state);
             return;
