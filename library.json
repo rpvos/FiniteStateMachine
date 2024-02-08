@@ -24,9 +24,12 @@
         "atmelavr"
     ],
     "headers": [
-        "finite_state_machine.hpp",
         "a_state.hpp",
         "a_transition.hpp",
+        "finite_state_machine.hpp",
+        "i_get_duration_in_ms.hpp",
+        "i_predicate.hpp",
+        "i_set_duration_in_ms.hpp",
         "predicate_transition.hpp",
         "timed_transition.hpp"
     ],

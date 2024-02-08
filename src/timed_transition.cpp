@@ -4,7 +4,16 @@ TimedTransition::TimedTransition(AState *const past_state, AState *const new_sta
 {
     this->past_state = past_state;
     this->new_state = new_state;
+    this->get_duration_in_ms = nullptr;
     this->duration_in_ms = duration_in_ms;
+}
+
+TimedTransition::TimedTransition(AState *const past_state, AState *const new_state, IGetDurationInMs *get_duration_in_ms)
+{
+    this->past_state = past_state;
+    this->new_state = new_state;
+    this->get_duration_in_ms = get_duration_in_ms;
+    this->duration_in_ms = 0;
 }
 
 TimedTransition::~TimedTransition()
@@ -13,5 +22,15 @@ TimedTransition::~TimedTransition()
 
 unsigned long TimedTransition::GetDurationInMs()
 {
+    if (get_duration_in_ms != nullptr)
+    {
+        return get_duration_in_ms->GetDurationInMs();
+    }
+
     return this->duration_in_ms;
+}
+
+void TimedTransition::SetDurationInMs(const unsigned long duration_in_ms)
+{
+    this->duration_in_ms = duration_in_ms;
 }

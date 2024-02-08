@@ -2,16 +2,17 @@
 #define PREDICATE_TRANSITION_HPP_
 
 #include "a_transition.hpp"
-
-typedef bool (*Predicate)(...);
+#include "i_predicate.hpp"
 
 class PredicateTransition : public ATransition
 {
 private:
     Predicate predicate = nullptr;
+    IPredicate *i_predicate = nullptr;
 
 public:
     PredicateTransition(AState *const past_state, AState *const new_state, Predicate predicate);
+    PredicateTransition(AState *const past_state, AState *const new_state, IPredicate *predicate);
     ~PredicateTransition();
 
     bool ExecutePredicate();
