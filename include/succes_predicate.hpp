@@ -12,7 +12,7 @@ public:
 
     bool succes;
 
-    bool Predicate(...) override;
+    bool Predicate() override;
 };
 
 #endif // SUCCES_PREDICATE_HPP_

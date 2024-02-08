@@ -9,7 +9,7 @@ SuccesPredicate::~SuccesPredicate()
 {
 }
 
-bool SuccesPredicate::Predicate(...)
+bool SuccesPredicate::Predicate()
 {
     return succes;
 }
