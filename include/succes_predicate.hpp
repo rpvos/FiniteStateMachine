@@ -3,14 +3,14 @@
 
 #include "i_predicate.hpp"
 
-class SuccesPredicate : IPredicate
+class SuccesPredicate : public IPredicate
 {
 private:
-    bool succes;
-
 public:
     SuccesPredicate();
     ~SuccesPredicate();
+
+    bool succes;
 
     bool Predicate(...) override;
 };
