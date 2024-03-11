@@ -12,12 +12,14 @@ private:
     IGetDurationInMs *get_duration_in_ms;
 
 public:
-    TimedTransition(AState *const past_state, AState *const new_state, const unsigned long duration_in_ms);
-    TimedTransition(AState *const past_state, AState *const new_state, IGetDurationInMs *get_duration_in_ms);
+    explicit TimedTransition(AState *const past_state, AState *const new_state, const unsigned long duration_in_ms);
+    explicit TimedTransition(AState *const past_state, AState *const new_state, IGetDurationInMs *get_duration_in_ms);
+    TimedTransition();
     ~TimedTransition();
 
     unsigned long GetDurationInMs() override;
     void SetDurationInMs(const unsigned long duration_in_ms) override;
+    void SetDurationInMs(IGetDurationInMs *get_duration_in_ms);
 };
 
 #endif // TIMED_TRANSITION_HPP_

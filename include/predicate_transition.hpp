@@ -11,9 +11,13 @@ private:
     IPredicate *i_predicate = nullptr;
 
 public:
-    PredicateTransition(AState *const past_state, AState *const new_state, Predicate predicate);
-    PredicateTransition(AState *const past_state, AState *const new_state, IPredicate *predicate);
+    explicit PredicateTransition(AState *const past_state, AState *const new_state, Predicate predicate);
+    explicit PredicateTransition(AState *const past_state, AState *const new_state, IPredicate *predicate);
+    PredicateTransition();
     ~PredicateTransition();
+
+    void SetPredicate(Predicate predicate);
+    void SetPredicate(IPredicate *predicate);
 
     bool ExecutePredicate();
 };

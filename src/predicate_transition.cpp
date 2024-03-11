@@ -5,6 +5,7 @@ PredicateTransition::PredicateTransition(AState *const past_state, AState *const
     this->past_state = past_state;
     this->new_state = new_state;
     this->predicate = predicate;
+    this->i_predicate = nullptr;
 }
 
 PredicateTransition::PredicateTransition(AState *const past_state, AState *const new_state, IPredicate *predicate)
@@ -12,10 +13,29 @@ PredicateTransition::PredicateTransition(AState *const past_state, AState *const
     this->past_state = past_state;
     this->new_state = new_state;
     this->i_predicate = predicate;
+    this->predicate = nullptr;
+}
+
+PredicateTransition::PredicateTransition()
+{
+    this->past_state = nullptr;
+    this->new_state = nullptr;
+    this->predicate = nullptr;
+    this->i_predicate = nullptr;
 }
 
 PredicateTransition::~PredicateTransition()
 {
+}
+
+void PredicateTransition::SetPredicate(Predicate predicate)
+{
+    this->predicate = predicate;
+}
+
+void PredicateTransition::SetPredicate(IPredicate *predicate)
+{
+    this->i_predicate = predicate;
 }
 
 bool PredicateTransition::ExecutePredicate()
